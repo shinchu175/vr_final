@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="contact-page">
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="/">Home</a>
+    <a href="/places">Explore</a>
+    <a href="/contact">Contact</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<!-- CONTACT GLASS CARD -->
+<div class="contact-glass">
+
+    <h1>📩 Contact Us</h1>
+    <p>We’d love to hear from you ✨</p>
+
+    {% if success %}
+        <p class="success">{{ success }}</p>
+    {% endif %}
+
+    <form method="POST">
+
+        <div class="input-box">
+            <i class="fa fa-user"></i>
+            <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+
+        <div class="input-box">
+            <i class="fa fa-envelope"></i>
+            <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+
+        <div class="input-box">
+            <i class="fa fa-message"></i>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+        </div>
+
+        <button type="submit" class="btn fancy-btn">
+            <i class="fa fa-paper-plane"></i> Send Message
+        </button>
+<style></style>
+    </form>
+
+</div>
+
+</body>
+</html>

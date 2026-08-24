@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Virtual Travel</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>🌍 Virtual Travel</h1>
+    <p>Welcome {{ user }}</p>
+</div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="/">Home</a>
+    <a href="/places">Explore</a>
+
+    <a href="/contact">Contact</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<!-- HERO SECTION -->
+<div class="hero">
+
+    <h2>Explore the world from your screen ✈️</h2>
+<h4>“Wander often, wonder always.”</h4>
+    <div class="hero-buttons">
+
+    </div>
+
+</div>
+
+<!-- FEATURES SECTION -->
+<div class="features">
+
+    <div class="feature-box">
+        <h3>🎬 VR Experience</h3>
+        <p>Watch immersive travel videos and feel like you're there.</p>
+    </div>
+
+    <div class="feature-box">
+        <h3>🗺️ Live Maps</h3>
+        <p>Explore locations using interactive Google Maps.</p>
+    </div>
+
+    <div class="feature-box">
+        <h3>🌄 Beautiful Places</h3>
+        <p>Discover nature, cities, and wonders around the world.</p>
+
+
+    </div>
+
+</div>
+
+<!-- CTA SECTION -->
+<div class="cta">
+    <h2>Ready to start your journey?</h2>
+    <a href="/places" class="btn big-btn">🚀 Explore Now</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>VR View</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header><h1>🥽 VR Experience</h1></header>
+
+<nav>
+<a href="/">Home</a>
+<a href="/places">Back</a>
+<a href="/logout">Logout</a>
+</nav>
+
+<div class="containerr">
+
+
+
+<iframe width="80%" height="600"
+src="https://www.youtube.com/embed/{{ video }}"
+allowfullscreen>
+</iframe>
+
+</div>
+<style>
+    h2{
+    text-align:center;
+    }
+</style>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

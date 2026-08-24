@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Explore Places</title>
+
+    <style>
+        body {
+            margin: 0;
+
+           background: linear-gradient(135deg, #5f6caf, #7b4397);
+            color: black;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0,0,0,0.6);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+.containerr{
+align-items:center;
+
+
+
+}
+        /* 🔥 MAIN CONTAINER */
+        .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 40px;
+}
+
+       .card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+ background: linear-gradient(135deg, #5f6caf, #7b4397),
+                url('../images/background.jpg') no-repeat center center fixed;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-lg);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: var(--transition);
+    display: block;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.card:hover::after {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.card h1,
+.card h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    text-align: center;
+    margin: 15px 0 10px 0;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.card p {
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin: 8px 15px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.card p:last-of-type {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+button,
+.btn,
+.button {
+    display: inline-block;
+    padding: 12px 28px;
+    margin: 8px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    background:black
+    box-shadow: var(--shadow-sm);
+    font-size: 1rem;
+}
+button{
+    background: rgba(0,0,0,0.6);
+    color:white;
+}
+
+button:hover,
+.btn:hover,
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+button:active,
+.btn:active,
+.button:active {
+    transform: scale(0.98);
+}
+.vr-btn {
+    background: var(--primary-gradient);
+}
+
+.vr-btn:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* MAP BUTTON */
+.map-button {
+    background: var(--secondary-gradient);
+    padding: 10px 20px;
+    font-size: 0.95rem;
+}
+
+.map-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+    background: var(--dark-gradient);
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #000000 0%, #434343 100%);
+}
+
+
+        button:hover, .button:hover {
+            transform: scale(1.05);
+        }
+
+        /* SEARCH */
+        #search {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            width: 50%;
+            border-radius: 20px;
+            border: none;
+        }
+
+        /* FILTER BUTTONS */
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-buttons button {
+            margin: 5px;
+        }
+       /* TITLE */
+.card h2 {
+    font-family: 'Poppins', sans-serif;
+
+    background: linear-gradient(
+        180deg,
+        #ffffff,
+        #cce7ff,
+        #66b2ff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* DESCRIPTION */
+.card p {
+    font-family: 'Lora', serif;
+font-weight:bold;
+    background: linear-gradient(
+        180deg,
+        #ffffff,
+        #a8d8ff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* DESCRIPTION */
+.card p {
+    font-family: 'Lora', serif;
+
+    background:
+        rgba(0,0,0,0.8);
+
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+        .card p {
+    color: rgba(0,0,0,0.8);
+    text-align:center;
+}
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌍 Explore Places</h1>
+    <h3>Welcome {{ user }}</h3>
+    <h4>“Explore - Dream - Discover.”</h4>
+</header>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/places">Explore</a>
+    <a href="/contact">Contact</a>
+    <a href="/logout">Logout</a>
+</nav>
+
+<!-- SEARCH -->
+<input id="search" placeholder="Search places..." onkeyup="searchPlaces()">
+
+<!-- FILTER -->
+<div class="filter-buttons">
+    <button onclick="filterCategory('all')">All</button>
+    <button onclick="filterCategory('beach')">Beaches</button>
+    <button onclick="filterCategory('city')">Cities</button>
+    <button onclick="filterCategory('historical')">Historical</button>
+    <button onclick="filterCategory('nature')">Nature</button>
+</div>
+
+<!-- 🔥 MAIN CONTENT -->
+<div class="container">
+
+    <!-- BEACH -->
+    <div class="card" data-category="beach">
+        <img src="{{ url_for('static', filename='images/goa.jpg') }}">
+        <h1>Goa</h1>
+        <p>Goa is a small Indian state on the west coast known for its beaches, Portuguese heritage, vibrant culture, and tourism-driven economy.</p>
+         <p>Best time: Nov - March</p>
+        <a href="/vr/goa"><button>View VR</button></a>
+        <a href="/map/goa"><button>View Map</button></a>
+    </div>
+
+    <div class="card" data-category="beach">
+        <img src="{{ url_for('static', filename='images/bali.jpg') }}">
+        <h1>Bali</h1>
+        <p>Bali, known as the "Island of the Gods," is an Indonesian province renowned for its rich Hindu culture, scenic landscapes, diverse temples, and tourism-driven economy.
+</p>
+        <p>Best time: April - October</p>
+        <a href="/vr/bali"><button>View VR</button></a>
+        <a href="/map/bali"><button>View Map</button></a>
+    </div>
+
+    <div class="card" data-category="beach">
+        <img src="{{ url_for('static', filename='images/maldives.jpg') }}">
+        <h1>Maldives</h1>
+        <p>The Maldives is a tropical island nation in the Indian Ocean, renowned for its 26 atolls, over 1,200 coral islands, turquoise waters, and luxury tourism, making it one of the world's most unique and widely dispersed countries.</p>
+        <p>Best time: Nov - April</p>
+        <a href="/vr/maldives"><button>View VR</button></a>
+        <a href="/map/maldives"><button>View Map</button></a>
+    </div>
+
+    <!-- CITY -->
+    <div class="card" data-category="city">
+        <img src="{{ url_for('static', filename='images/dubai.jpg') }}">
+        <h1>Dubai</h1>
+        <p>Dubai is a global city and business hub in the United Arab Emirates (UAE), known for its futuristic skyscrapers, luxury lifestyle, and vibrant cultural and economic significance.</p>
+        <p>Best time: Nov - March</p>
+        <a href="/vr/dubai"><button>View VR</button></a>
+        <a href="/map/dubai"><button>View Map</button></a>
+    </div>
+
+    <div class="card" data-category="city">
+        <img src="{{ url_for('static', filename='images/newyork.jpg') }}">
+        <h1>New York</h1>
+        <p>New York City (NYC) is a vibrant metropolis known for its rich history, cultural diversity, and iconic landmarks, making it one of the most influential cities in the world.</p>
+        <p>Best time: Sep - Nov</p>
+        <a href="/vr/newyork"><button>View VR</button></a>
+        <a href="/map/newyork"><button>View Map</button></a>
+    </div>
+
+    <div class="card" data-category="city">
+        <img src="{{ url_for('static', filename='images/london.jpg') }}">
+        <h1>London</h1>
+        <p>London is the capital city of the United Kingdom and England, renowned for its rich history, diverse culture, and global economic significance.</p>
+        <p>Best time: May - June</p>
+        <a href="/vr/london"><button>View VR</button></a>
+        <a href="/map/london"><button>View Map</button></a>
+    </div>
+
+    <!-- HISTORICAL -->
+    <div class="card" data-category="historical">
+        <img src="{{ url_for('static', filename='images/taj.jpg') }}">
+        <h1>Taj Mahal</h1>
+        <p>The Taj Mahal is a world-renowned white marble mausoleum in Agra, India, celebrated for its stunning Mughal architecture and designated as a UNESCO World Heritage Site.</p>
+        <p>Best time: Oct - March</p>
+        <a href="/vr/taj"><button>View VR</button></a>
+        <a href="/map/taj"><button>View Map</button></a>
+    </div>
+
+    <div class="card" data-category="historical">
+        <img src="{{ url_for('static', filename='images/colosseum.jpg') }}">
+        <h1>Colosseum</h1>
+        <p>The Colosseum, also known as the Flavian Amphitheatre, is an ancient Roman amphitheatre renowned for its grandeur, history, and role in gladiatorial games.</p>
+        <p>Best time: Mar - May</p>
+        <a href="/vr/colosseum"><button>View VR</button></a>
+        <a href="/map/colosseum"><button>View Map</button></a>
+    </div>
+
+    <div class="card" data-category="historical">
+        <img src="{{ url_for('static', filename='images/greatwall.jpg') }}">
+        <h1>Great Wall</h1>
+        <p>The Great Wall of China is a vast series of fortifications built over centuries to protect northern China, stretching over 21,196 kilometers and recognized as a UNESCO World Heritage Site.</p>
+        <p>Best time: Sep - Nov</p>
+        <a href="/vr/greatwall"><button>View VR</button></a>
+        <a href="/map/greatwall"><button>View Map</button></a>
+    </div>
+
+    <!-- NATURE -->
+    <div class="card" data-category="nature">
+        <img src="{{ url_for('static', filename='images/swiss.jpg') }}">
+        <h1>Switzerland</h1>
+        <p>Switzerland, officially known as the Swiss Confederation, is a landlocked country in Central Europe, renowned for its stunning landscapes, cultural diversity, and political neutrality.</p>
+        <p>Best time: June - September</p>
+        <a href="/vr/swiss"><button>View VR</button></a>
+        <a href="/map/swiss"><button>View Map</button></a>
+    </div>
+
+    <div class="card" data-category="nature">
+        <img src="{{ url_for('static', filename='images/grandcanon.jpg') }}">
+        <h1>Grand Canyon</h1>
+        <p>The Grand Canyon is a world-renowned natural wonder in northern Arizona, USA, known for its dramatic landscapes, geological significance, and awe-inspiring vistas.</p>
+        <p>Best time: Apr - May</p>
+        <a href="/vr/grandcanon"><button>View VR</button></a>
+        <a href="/map/grandcanon"><button>View Map</button></a>
+    </div>
+
+    <div class="card" data-category="nature">
+        <img src="{{ url_for('static', filename='images/northenlights.jpg') }}">
+        <h1>Northern Lights</h1>
+        <p>The northern lights, or Aurora Borealis, are stunning natural light displays in the polar skies, caused by charged solar particles interacting with Earth's atmosphere</p>
+        <p>Best time: Aug - April</p>
+        <a href="/vr/northenlights"><button>View VR</button></a>
+        <a href="/map/northenlights"><button>View Map</button></a>
+    </div>
+
+</div>
+
+<!-- 🔥 SCRIPT -->
+<script>
+function searchPlaces() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let cards = document.getElementsByClassName("card");
+
+    for (let i = 0; i < cards.length; i++) {
+        let text = cards[i].innerText.toLowerCase();
+        cards[i].style.display = text.includes(input) ? "block" : "none";
+    }
+}
+
+function filterCategory(category) {
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        if (category === "all" || card.dataset.category === category) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+</script>
+
+</body>
+</html>

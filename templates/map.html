@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Map View</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="/">Home</a>
+    <a href="/places">Explore</a>
+
+    <a href="/contact"></a>
+    <a href="/logout">Logout</a>
+</div>
+
+
+<h1 style="text-align:center;">{{ place | capitalize }} - Location</h1>
+<div style="text-align:center; margin: 20px;">
+    <a href="/places" class="btn">⬅ Back to Explore</a>
+</div>
+
+<div style="text-align:center;">
+    <iframe
+        src="{{ link }}"
+        width="90%"
+        height="500"
+        style="border:0;"
+        allowfullscreen>
+    </iframe>
+</div>
+
+
+</body>
+</html>

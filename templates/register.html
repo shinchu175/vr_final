@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+    .container{
+    align-items:center;
+    }
+</style>
+</head>
+<body>
+
+<header><h1>Register</h1>
+<h2>(way to see the world🌍)</h2>
+
+</header>
+
+<div class="container">
+<form method="POST">
+
+<input type="text" name="username" placeholder="Username" required>
+    <br>
+<input type="password" name="password" placeholder="Password" required>
+
+{% if error %}
+<p style="color:red;">{{ error }}</p>
+{% endif %}
+<br>
+<button type="submit" class="rbtn" >Register</button>
+<a href="/login" style="color:black;">Already have account? Login</a>
+</form>
+
+
+</div>
+
+</body>
+</html>
